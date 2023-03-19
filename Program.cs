@@ -12,13 +12,13 @@ namespace CatWorx.BadgeMaker
             {
 
                 Console.WriteLine("Please enter a name: (leave empty to exit): ");
-
                 string input = Console.ReadLine() ?? "";
-
                 if (input == "")
                 {
                     break;
                 }
+                // Create a new Employee instance
+                Employee currentEmployee = new Employee(input, "Smith");
                 employees.Add(input);
             }
             return employees;
