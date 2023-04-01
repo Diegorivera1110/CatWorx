@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+
+
 namespace CatWorx.BadgeMaker
 {
     class Util
@@ -9,6 +13,11 @@ namespace CatWorx.BadgeMaker
                 string template = "{0,-10}\t{1,-20}\t{2}";
                 Console.WriteLine(String.Format(template, employees[i].GetId(), employees[i].GetFullName(), employees[i].GetPhotoUrl()));
             }
+        }
+
+        public static void MakeCSV(List<Employee> employees)
+        {
+            
         }
     }
 }
