@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 
 
@@ -17,7 +18,12 @@ namespace CatWorx.BadgeMaker
 
         public static void MakeCSV(List<Employee> employees)
         {
-            
+            // Check to see if folder exists
+            if (!Directory.Exists("data"))
+            {
+                // If not, create it
+                Directory.CreateDirectory("data");
+            }
         }
     }
 }
