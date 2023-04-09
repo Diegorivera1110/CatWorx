@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "JbN64MdZmT2HZXd0+aVWuYd4awrJJKV14GxOVpCmVW6LGb2vcvItfNSsP030rjwcdgLrx0vvwDPGoH5Ear0wsA==",
+  "dgSpecHash": "5Yxycni2OB3lsA5hYTuLclA6oN8+GEt6V82dk7Z1Mzmm/8uPgNi8E1Cs2ipOFADKNMZbGxL3vCYZw5U4remSsQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\diego\\OneDrive\\desktop\\projects\\CatWorx.BadgeMaker\\CatWorx.BadgeMaker.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\diego\\.nuget\\packages\\skiasharp\\2.88.3\\skiasharp.2.88.3.nupkg.sha512",
+    "C:\\Users\\diego\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.3\\skiasharp.nativeassets.macos.2.88.3.nupkg.sha512",
+    "C:\\Users\\diego\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.3\\skiasharp.nativeassets.win32.2.88.3.nupkg.sha512"
+  ],
   "logs": []
 }
