@@ -43,11 +43,12 @@ namespace CatWorx.BadgeMaker
 
         async public static Task MakeBadges(List<Employee> employees) {
             // Create image
-            using(HttpClient clien = new HttpClient())
+            using(HttpClient client = new HttpClient())
             {
                 for (int i = 0; i < employees.Count; i++)
                 {
                     SKImage photo = SKImage.FromEncodedData(await client.GetStreamAsync(employees[i].GetPhotoUrl()));
+                    SKImage background = SKImage.FromEncodedData(File.OpenRead("badge.png"));
 
                     SKData data = photo.Encode();
                     data.SaveTo(File.OpenWrite("data/employee"));
