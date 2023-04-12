@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SkiaSharp;
 
 
+
 namespace CatWorx.BadgeMaker
 {
     class Util
@@ -27,31 +28,36 @@ namespace CatWorx.BadgeMaker
                 // If not, create it
                 Directory.CreateDirectory("data");
             }
-            
-           using ( StreamWriter file = new StreamWriter("data/employees.csv"))
-           {
-            file.WriteLine("ID,name,Photo");
 
-            // Loop over employees
-            for (int i = 0; i < employees.Count; i++)
+            using (StreamWriter file = new StreamWriter("data/employees.csv"))
             {
-                string template = "{0},{1},{2}";
-                file.WriteLine(String.Format(template, employees[i].GetId(), employees[i].GetFullName(), employees[i].GetPhotoUrl()));
+                file.WriteLine("ID,name,Photo");
+
+                // Loop over employees
+                for (int i = 0; i < employees.Count; i++)
+                {
+                    string template = "{0},{1},{2}";
+                    file.WriteLine(String.Format(template, employees[i].GetId(), employees[i].GetFullName(), employees[i].GetPhotoUrl()));
+                }
             }
-           }
         }
 
-        async public static Task MakeBadges(List<Employee> employees) {
+        async public static Task MakeBadges(List<Employee> employees)
+        {
+            int BADGE_WIDTH = 669;
+            int BADGE_HEIGHT = 1044;
             // Create image
-            using(HttpClient client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 for (int i = 0; i < employees.Count; i++)
                 {
                     SKImage photo = SKImage.FromEncodedData(await client.GetStreamAsync(employees[i].GetPhotoUrl()));
                     SKImage background = SKImage.FromEncodedData(File.OpenRead("badge.png"));
 
-                    SKData data = photo.Encode();
-                    data.SaveTo(File.OpenWrite("data/employee"));
+                    SKBitmap badge = new SKBitmap(BADGE_WIDTH, BADGE_HEIGHT);
+
+                    // SKData data = background.Encode();
+                    // data.SaveTo(File.OpenWrite("data/employeeBadge.png"));
                 }
             }
         }
