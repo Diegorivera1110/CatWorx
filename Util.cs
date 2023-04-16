@@ -52,6 +52,8 @@ namespace CatWorx.BadgeMaker
             int PHOTO_RIGHT_X = 486;
             int PHOTO_BOTTOM_Y = 517;
 
+            int COMPANY_NAME_Y = 150;
+
             // Create image
             using (HttpClient client = new HttpClient())
             {
@@ -69,6 +71,8 @@ namespace CatWorx.BadgeMaker
                     SKImage finalImage = SKImage.FromBitmap(badge);
                     SKData data = finalImage.Encode();
                     data.SaveTo(File.OpenWrite("data/employeeBadge.png"));
+
+                    employees[i].GetCompanyName();
                 }
             }
         }
