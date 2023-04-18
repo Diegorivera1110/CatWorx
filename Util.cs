@@ -73,6 +73,16 @@ namespace CatWorx.BadgeMaker
                     data.SaveTo(File.OpenWrite("data/employeeBadge.png"));
 
                     employees[i].GetCompanyName();
+
+                    SKPaint paint = new SKPaint();
+                    paint.TextSize = 42.0f;
+                    paint.IsAntialias = true;
+                    paint.Color = SKColors.White;
+                    paint.IsStroke = false;
+                    paint.TextAlign = SKTextAlign.Center;
+                    paint.Typeface = SKTypeface.FromFamilyName("Arial");
+
+                    canvas.DrawText(employees[i].GetCompanyName(), BADGE_WIDTH / 2f, COMPANY_NAME_Y, paint);
                 }
             }
         }
