@@ -72,10 +72,6 @@ namespace CatWorx.BadgeMaker
                     canvas.DrawImage(background, new SKRect(0, 0, BADGE_WIDTH, BADGE_HEIGHT));
                     canvas.DrawImage(photo, new SKRect(PHOTO_LEFT_X, PHOTO_TOP_Y, PHOTO_RIGHT_X, PHOTO_BOTTOM_Y));
 
-                    SKImage finalImage = SKImage.FromBitmap(badge);
-                    SKData data = finalImage.Encode();
-                    data.SaveTo(File.OpenWrite("data/employeeBadge.png"));
-
                     employees[i].GetCompanyName();
 
                     SKPaint paint = new SKPaint();
@@ -92,6 +88,15 @@ namespace CatWorx.BadgeMaker
 
                     // Employee name
                     canvas.DrawText(employees[i].GetFullName(), BADGE_WIDTH / 2f, EMPLOYEE_NAME_Y, paint);
+
+                    paint.Typeface = SKTypeface.FromFamilyName("Courier New");
+
+                    canvas.DrawText(employees[i].GetId().ToString(), BADGE_WIDTH / 2f, EMPLOYEE_ID_Y, paint);
+
+                    SKImage finalImage = SKImage.FromBitmap(badge);
+                    SKData data = finalImage.Encode();
+                    data.SaveTo(File.OpenWrite("data/employeeBadge.png"));
+                    
                 }
             }
         }
