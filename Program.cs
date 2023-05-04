@@ -34,7 +34,7 @@ namespace CatWorx.BadgeMaker
         async static Task Main(string[] args)
         {
             // List<Employee> employees = GetEmployees();
-            employees = PeopleFetcher.GetFromApi();
+            employees = await PeopleFetcher.GetFromApi();
             Util.PrintEmployees(employees);
             Util.MakeCSV(employees);
             await Util.MakeBadges(employees);

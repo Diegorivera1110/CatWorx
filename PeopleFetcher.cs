@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+
 
 namespace CatWorx.BadgeMaker
 {
@@ -7,11 +9,17 @@ namespace CatWorx.BadgeMaker
     {
         // code from getEmplpyees() in Program.cs
         static List<Employee> GetEmployees()
+
         {
             List<Employee> employees = new List<Employee>();
             return employees;
         }
 
-        public static void GetFromApi() {}
+        async public static Task <List<Employee>> GetFromApi() {
+            using (HttpClient client = new HttpClient())
+{
+
+}
+        }
     }
 }
