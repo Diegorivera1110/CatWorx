@@ -18,7 +18,7 @@ namespace CatWorx.BadgeMaker
         async public static Task <List<Employee>> GetFromApi() {
             using (HttpClient client = new HttpClient())
 {
-
+    string response = await client.GetStringAsync("https://randomuser.me/api/?results=10&nat=us&inc=name,id,picture");
 }
         }
     }
